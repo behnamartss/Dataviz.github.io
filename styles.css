@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+* {
+  font-family: 'Fira Sans', 'Sans Serif';
+}
+
+body {
+  background-color: #fff;
+  color: darkslategrey;
+}
+
+h1 {
+  font-family: 'Roboto Slab', 'Serif';
+  color: darkblue;
+}
+
+p {
+  color: #148310;
+}
+
+ul,
+ol {
+  font-size: small;
+}
+
+.colored-list {
+  color: rgb(90, 11, 100);
+}
+
+/* per pagina 04 */
+
+.container {
+  margin: auto;
+  width: 60%;
+}
+
+.container h1 {
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.main-text {
+  margin: auto;
+  width: 80%;
+}
+
+/*per pagina 6*/
+
+.head h1 {
+  color: dodgerblue;
+}
+
+.head h2 {
+  font-family: 'Fira Sans', 'Sans Serif';
+  font-size: medium;
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -2.2em;
+  margin-bottom: 1.5em;
+}
+
+.main-text h3 em {
+  color: slategray;
+}
+
+.first {
+  margin-top: 1em;
+}
+
+.second {
+  margin-bottom: 2em;
+}
+
+/* per pagina 5 */
+
+.main-text .l-g-infoGraphicsGrid {
+  list-style: none;
+}
+
+.l-g-infoGraphicsGrid {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.c-spotCard {
+  background: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  padding: calc(1rem * 2);
+  border: 2px solid rgb(238, 238, 238);
+}
+.c-spotCard-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.c-spotCard-title {
+  font-family: 'Roboto Slab', 'Serif';
+  font-size: 1.266rem;
+  font-style: italic;
+  font-weight: bolder;
+  color: #09f;
+  margin: calc(1rem * 2) 0;
+}
+
+.c-spotCard-figure {
+  position: relative;
+  overflow-y: hidden;
+  display: block;
+  margin: 0;
+
+  width: 100%;
+  padding-top: calc(2 / 3 * 100%);
+}
+
+.c-spotCard-figure img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+}
+.c-spotCard-text .lista {
+  margin-left: 0;
+}
+
+.c-spotCard-wrapperLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+  height: 100%;
+}
+
+.c-spotCard-wrapperLink:hover > .c-spotCard {
+  transition: box-shadow 135ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px 1px rgba(152, 176, 194, 0.2),
+    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+}
+
+/* svg styles */
+
+svg.filled {
+  fill: teal;
+}
