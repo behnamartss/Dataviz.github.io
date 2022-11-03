@@ -1,7 +1,7 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -15,247 +15,283 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans">
 
 
-    
+
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.css" rel="stylesheet">
+    <!-- <link href="../styles.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
 
-    <style>.row.heading h2 {
-        /* color: rgb(118, 116, 116); */
-        /* font-size: 52.52px; */
-        line-height: 95px;
-        text-align: center;
-        margin: 0 0 40px;
-        padding-bottom: 20px;
-    }
-    ul{
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    .heading.heading-icon {
-        display: block;
-    }
-    .padding-lg {
-        display: block;
-        /* padding-top: 20px; */
-        padding-bottom: 60px;
-    }
-    .practice-area.padding-lg {
-        padding-bottom: 55px;
-        padding-top: 55px;
-    }
-    .practice-area .inner{ 
-         border:1px solid #999999; 
-         text-align:center; 
-         margin-bottom:28px; 
-         padding:40px 25px;
-    }
-    .our-webcoderskull .cnt-block:hover {
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-        border: 0;
-    }
-    .practice-area .inner h3{ 
-        color:#3c3c3c; 
-        font-size:24px; 
-        font-weight:500;
-        font-family: 'Poppins', sans-serif;
-        padding: 10px 0;
-    }
-    .practice-area .inner p{ 
-        font-size:14px; 
-        line-height:22px; 
-        font-weight:400;
-    }
-    .practice-area .inner img{
-        display:inline-block;
-    }
-    
-    
-    .our-webcoderskull{
-      background: rgba(255, 255, 255, 0.387) no-repeat center top / cover;
-      
-    }
-    .our-webcoderskull .cnt-block{ 
-       float:left; 
-       width:100%; 
-       background:#fff; 
-       padding:30px 20px; 
-       text-align:center; 
-       border:2px solid #d5d5d5;
-       margin: 0 0 28px;
-    }
-    .our-webcoderskull .cnt-block figure{
-       width:148px; 
-       height:148px; 
-       border-radius:100%; 
-       display:inline-block;
-       margin-bottom: 15px;
-    }
-    .our-webcoderskull .cnt-block img{ 
-       width:148px; 
-       height:148px; 
-       border-radius:100%; 
-    }
-    .our-webcoderskull .cnt-block h3{ 
-       color:#2a2a2a; 
-       font-size:20px; 
-       font-weight:500; 
-       padding:6px 0;
-       text-transform:uppercase;
-    }
-    .our-webcoderskull .cnt-block h3 a{
-      text-decoration:none;
-        color:#2a2a2a;
-    }
-    .our-webcoderskull .cnt-block h3 a:hover{
-        color:#337ab7;
-    }
-    .our-webcoderskull .cnt-block p{ 
-       color:#2a2a2a; 
-       font-size:13px; 
-       line-height:20px; 
-       font-weight:400;
-    }
-    .our-webcoderskull .cnt-block .follow-us{
-        margin:20px 0 0;
-    }
-    .our-webcoderskull .cnt-block .follow-us li{ 
-        display:inline-block; 
-        width:auto; 
-        margin:0 5px;
-    }
-    .our-webcoderskull .cnt-block .follow-us li .fa{ 
-       font-size:24px; 
-       color:#767676;
-    }
-    .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
-       color:#025a8e;
-    }
+    <style>
+        .navbar-blue {
+            background-color: #0984e3;
+        }
+
+        .row.heading h2 {
+            /* color: rgb(118, 116, 116); */
+            /* font-size: 52.52px; */
+            line-height: 95px;
+            text-align: center;
+            margin: 0 0 40px;
+            padding-bottom: 20px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .heading.heading-icon {
+            display: block;
+        }
+
+        .padding-lg {
+            display: block;
+            /* padding-top: 20px; */
+            padding-bottom: 60px;
+        }
+
+        .practice-area.padding-lg {
+            padding-bottom: 55px;
+            padding-top: 55px;
+        }
+
+        .practice-area .inner {
+            border: 1px solid #999999;
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 40px 25px;
+        }
+
+        .our-webcoderskull .cnt-block:hover {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border: 0;
+        }
+
+        .practice-area .inner h3 {
+            color: #3c3c3c;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            padding: 10px 0;
+        }
+
+        .practice-area .inner p {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+        }
+
+        .practice-area .inner img {
+            display: inline-block;
+        }
+
+
+        .our-webcoderskull {
+            background: rgba(255, 255, 255, 0.387) no-repeat center top / cover;
+
+        }
+
+        .our-webcoderskull .cnt-block {
+            float: left;
+            width: 100%;
+            background: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid #d5d5d5;
+            margin: 0 0 28px;
+        }
+
+        .our-webcoderskull .cnt-block figure {
+            width: 148px;
+            height: 148px;
+            border-radius: 100%;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .our-webcoderskull .cnt-block img {
+            width: 148px;
+            height: 148px;
+            border-radius: 100%;
+        }
+
+        .our-webcoderskull .cnt-block h3 {
+            color: #2a2a2a;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 6px 0;
+            text-transform: uppercase;
+        }
+
+        .our-webcoderskull .cnt-block h3 a {
+            text-decoration: none;
+            color: #2a2a2a;
+        }
+
+        .our-webcoderskull .cnt-block h3 a:hover {
+            color: #337ab7;
+        }
+
+        .our-webcoderskull .cnt-block p {
+            color: #2a2a2a;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us {
+            margin: 20px 0 0;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li {
+            display: inline-block;
+            width: auto;
+            margin: 0 5px;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li .fa {
+            font-size: 24px;
+            color: #767676;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li .fa:hover {
+            color: #025a8e;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Lion Inside</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-blue">
+            <a class="navbar-brand" href="#">Lion Inside</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="plots/plot1.html">Tree Abundance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
     </header>
 
     <main role="main">
 
-      <!-- Introduction to the team and task
+        <!-- Introduction to the team and task
       ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-      <div class="container marketing">
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container marketing">
 
-        <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">Lioninside. <span class="text-muted">Data Visualisation </span></h2>
-              <p class="lead">In this project, We will be displaying various plots and charts using D3.js library. </p>
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Lioninside. <span class="text-muted">Data Visualisation </span></h2>
+                    <p class="lead">In this project, We will be displaying various plots and charts using D3.js library.
+                    </p>
+                </div>
+                <div class="col-md-5 mt-5">
+                    <img class="featurette-image img-fluid mx-auto"
+                        src="https://avatars.githubusercontent.com/u/1562726?s=200&v=4">
+                </div>
             </div>
-            <div class="col-md-5 mt-5">
-              <img class="featurette-image img-fluid mx-auto" src="https://avatars.githubusercontent.com/u/1562726?s=200&v=4">
-            </div>
-          </div>
 
-        <!-- START THE TEAM MEMBERS NAME -->
+            <!-- START THE TEAM MEMBERS NAME -->
 
-        <hr class="featurette-divider">
-         <!-- Three columns of text below the carousel -->
-         <section class="our-webcoderskull padding-lg">
-            <div class="container">
-              <div class="row heading heading-icon">
-                  <h2 class="featurette-heading">Our Team</h2>
-              </div>
-              <ul class="row">
-                <li class="col-12 col-md-6 col-lg-3">
-                    <div class="cnt-block equal-hight" style="height: 349px;">
-                      <figure><img src="https://avatars.githubusercontent.com/u/35130162?v=4" class="img-responsive" alt=""></figure>
-                      <h3><a href="#">Abdul Hannan Mustajab</a></h3>
-                      <p>S5156186</p>
+            <hr class="featurette-divider">
+            <!-- Three columns of text below the carousel -->
+            <section class="our-webcoderskull padding-lg">
+                <div class="container">
+                    <div class="row heading heading-icon">
+                        <h2 class="featurette-heading">Our Team</h2>
                     </div>
-                </li>
-                <li class="col-12 col-md-6 col-lg-3">
-                  <div class="cnt-block equal-hight" style="height: 349px;">
-                    <figure><img src="https://github.com/behnamartss/Lioninside/blob/main/uploaded_images/behnam.jpg?raw=true" class="img-responsive" alt=""></figure>
-                    <h3><a href="#">Seyedbehnam Rad </a></h3>
-                    <p>S5222186</p>
-                  </div>
-              </li>
-                <li class="col-12 col-md-6 col-lg-3">
-                    <div class="cnt-block equal-hight" style="height: 349px;">
-                      <figure><img src="http://www.webcoderskull.com/img/team1.png" class="img-responsive" alt=""></figure>
-                      <h3><a href="#">Majid Javed </a></h3>
-                      <p>Freelance Web Developer</p>
-                      <ul class="follow-us clearfix">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                      </ul>
-                    </div>
-                </li>
-                <li class="col-12 col-md-6 col-lg-3">
-                    <div class="cnt-block equal-hight" style="height: 349px;">
-                      <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt=""></figure>
-                      <h3><a href="http://www.webcoderskull.com/">Nargis Latifinaved </a></h3>
-                      <p>Freelance Web </p>
-                    </div>
-                 </li>
-                <li class="col-12 col-md-6 col-lg-3">
-                    <div class="cnt-block equal-hight" style="height: 349px;">
-                      <figure><img src="http://www.webcoderskull.com/img/team3.png" class="img-responsive" alt=""></figure>
-                      <h3><a href="#">Siamak Seifi </a></h3>
-                      <p>Freelance Web</p>
-                    </div>
-                </li>
-              </ul>
-            </div>
-          </section>
-  
-        <hr class="featurette-divider">
+                    <ul class="row">
+                        <li class="col-12 col-md-6 col-lg-3">
+                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                <figure><img src="https://avatars.githubusercontent.com/u/35130162?v=4"
+                                        class="img-responsive" alt=""></figure>
+                                <h3><a href="#">Abdul Hannan Mustajab</a></h3>
+                                <p>S5156186</p>
+                            </div>
+                        </li>
+                        <li class="col-12 col-md-6 col-lg-3">
+                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                <figure><img
+                                        src="https://github.com/behnamartss/Lioninside/blob/main/uploaded_images/behnam.jpg?raw=true"
+                                        class="img-responsive" alt=""></figure>
+                                <h3><a href="#">Seyedbehnam Rad </a></h3>
+                                <p>S5222186</p>
+                            </div>
+                        </li>
+                        <li class="col-12 col-md-6 col-lg-3">
+                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                <figure><img src="#" class="img-responsive" alt=""></figure>
+                                <h3><a href="#">Majid Javed </a></h3>
+                                <p>Freelance Web Developer</p>
+                                <ul class="follow-us clearfix">
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="col-12 col-md-6 col-lg-3">
+                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                <figure><img src="#" class="img-responsive" alt=""></figure>
+                                <h3><a href="#">Nargis Latifinaved </a></h3>
+                                <p>Freelance Web </p>
+                            </div>
+                        </li>
+                        <li class="col-12 col-md-6 col-lg-3">
+                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                <figure><img src="#" class="img-responsive" alt=""></figure>
+                                <h3><a href="#">Siamak Seifi </a></h3>
+                                <p>Freelance Web</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- /END THE FEATURETTES -->
+            <hr class="featurette-divider">
 
-      </div><!-- /.container -->
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
 
 
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>2022/2023 - Data Visualisation (Prof. A. Barla)</p>
-      </footer>
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>2022/2023 - Data Visualisation (Prof. A. Barla)</p>
+        </footer>
     </main>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-  </body>
+</body>
+
 </html>

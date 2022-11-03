@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
+.navbar-blue{
+  background-color: #0984e3;
+}
+
 * {
-  font-family: 'Fira Sans', 'Sans Serif';
+  font-family: 'Fira Sans';
 }
 
 body {
@@ -11,13 +15,11 @@ body {
 }
 
 h1 {
-  font-family: 'Roboto Slab', 'Serif';
+  font-family: 'Roboto Slab';
   color: darkblue;
 }
 
-p {
-  color: #148310;
-}
+
 
 ul,
 ol {
@@ -150,3 +152,187 @@ ol {
 svg.filled {
   fill: teal;
 }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: orange;
+}
+
+.bar:hover {
+  fill: #0984e3 ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+        .bar {
+            fill: #74b9ff;
+        }
+
+        .row.heading h2 {
+            /* color: rgb(118, 116, 116); */
+            /* font-size: 52.52px; */
+            line-height: 95px;
+            text-align: center;
+            margin: 0 0 40px;
+            padding-bottom: 20px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .heading.heading-icon {
+            display: block;
+        }
+
+        .padding-lg {
+            display: block;
+            /* padding-top: 20px; */
+            padding-bottom: 60px;
+        }
+
+        .practice-area.padding-lg {
+            padding-bottom: 55px;
+            padding-top: 55px;
+        }
+
+        .practice-area .inner {
+            border: 1px solid #999999;
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 40px 25px;
+        }
+
+        .our-webcoderskull .cnt-block:hover {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border: 0;
+        }
+
+        .practice-area .inner h3 {
+            color: #3c3c3c;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            padding: 10px 0;
+        }
+
+        .practice-area .inner p {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+        }
+
+        .practice-area .inner img {
+            display: inline-block;
+        }
+
+
+        .our-webcoderskull {
+            background: rgba(255, 255, 255, 0.387) no-repeat center top / cover;
+
+        }
+
+        .our-webcoderskull .cnt-block {
+            float: left;
+            width: 100%;
+            background: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid #d5d5d5;
+            margin: 0 0 28px;
+        }
+
+        .our-webcoderskull .cnt-block figure {
+            width: 148px;
+            height: 148px;
+            border-radius: 100%;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .our-webcoderskull .cnt-block img {
+            width: 148px;
+            height: 148px;
+            border-radius: 100%;
+        }
+
+        .our-webcoderskull .cnt-block h3 {
+            color: #2a2a2a;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 6px 0;
+            text-transform: uppercase;
+        }
+
+        .our-webcoderskull .cnt-block h3 a {
+            text-decoration: none;
+            color: #2a2a2a;
+        }
+
+        .our-webcoderskull .cnt-block h3 a:hover {
+            color: #337ab7;
+        }
+
+        .our-webcoderskull .cnt-block p {
+            color: #2a2a2a;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us {
+            margin: 20px 0 0;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li {
+            display: inline-block;
+            width: auto;
+            margin: 0 5px;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li .fa {
+            font-size: 24px;
+            color: #767676;
+        }
+
+        .our-webcoderskull .cnt-block .follow-us li .fa:hover {
+            color: #025a8e;
+        }
