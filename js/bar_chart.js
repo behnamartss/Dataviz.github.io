@@ -68,9 +68,3 @@
         return d;
     }
 
-d3.csv("../data/Stackdata.csv", function(data) {
-    for (var i = 0; i < data.length; i++) {
-        console.log(data);
-    }
-});
-
