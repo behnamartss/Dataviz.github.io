@@ -1,5 +1,3 @@
-// Setup svg using Bostock's margin convention
-
 var margin = {top: 20, right: 160, bottom: 35, left: 30};
 
 var width = 960 - margin.left - margin.right,
@@ -21,16 +19,7 @@ var parse = d3.time.format("%Y").parse;
 
 
 
-// Set x, y and colors
-var x = d3.scale.ordinal()
-  .domain(dataset[0].map(function(d) { return d.x; }))
-  .rangeRoundBands([10, width-10], 0.02);
 
-var y = d3.scale.linear()
-  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
-  .range([height, 0]);
-
-var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
 
 
 // Define and draw axes
@@ -49,12 +38,24 @@ var xAxis = d3.svg.axis()
   
   
 d3.csv("../data/Stackdata.csv", function(data) {
+    
  // Transpose the data into layers
 var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
   return data.map(function(d) {
     return {x: parse(d.year), y: +d[fruit]};
   });
 }));
+    
+    // Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10, width-10], 0.02);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
+
+var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
   svg.append("g")
   .attr("class", "y axis")
   .call(yAxis);
