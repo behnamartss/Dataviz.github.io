@@ -27,6 +27,17 @@ var data = [
   { year: "2016", redDelicious: "19", mcintosh: "17", oranges: "5", pears: "7" },
 ];
 
+
+
+
+
+d3.csv("/data/employees.csv", function(data) {
+    for (var i = 0; i < data.length; i++) {
+       
+        console.log(data);
+    }
+});
+
 var parse = d3.time.format("%Y").parse;
 
 
