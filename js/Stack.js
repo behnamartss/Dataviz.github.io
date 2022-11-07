@@ -20,13 +20,6 @@ var svg = d3.select("#plotDiv1")
 var parse = d3.time.format("%Y").parse;
 
 
-// Transpose the data into layers
-var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
-  return data.map(function(d) {
-    return {x: parse(d.year), y: +d[fruit]};
-  });
-}));
-
 
 // Set x, y and colors
 var x = d3.scale.ordinal()
@@ -56,26 +49,26 @@ var xAxis = d3.svg.axis()
   
   
 d3.csv("../data/Stackdata.csv", function(data) {
-  
-
-svg.append("g")
+ // Transpose the data into layers
+var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+  return data.map(function(d) {
+    return {x: parse(d.year), y: +d[fruit]};
+  });
+}));
+  svg.append("g")
   .attr("class", "y axis")
   .call(yAxis);
-
-svg.append("g")
+  svg.append("g")
   .attr("class", "x axis")
   .attr("transform", "translate(0," + height + ")")
   .call(xAxis);
-
-
-// Create groups for each series, rects for each segment 
-var groups = svg.selectAll("g.cost")
+    // Create groups for each series, rects for each segment 
+   var groups = svg.selectAll("g.cost")
   .data(dataset)
   .enter().append("g")
   .attr("class", "cost")
   .style("fill", function(d, i) { return colors[i]; });
-
-var rect = groups.selectAll("rect")
+   var rect = groups.selectAll("rect")
   .data(function(d) { return d; })
   .enter()
   .append("rect")
