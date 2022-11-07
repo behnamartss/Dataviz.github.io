@@ -86,7 +86,7 @@ var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
     tooltip.select("text").text(d.y);
   });
 
-});
+
 // Draw legend
 var legend = svg.selectAll(".legend")
   .data(colors)
@@ -132,3 +132,5 @@ tooltip.append("text")
   .style("text-anchor", "middle")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
+    
+ });
