@@ -38,7 +38,7 @@ var y = d3.scale.linear()
   .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
   .range([height, 0]);
 
-var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
+var colors = ["#B42809", "#d25c4d", "#f2b447", "#d9d574"];
 
 
 // Define and draw axes
