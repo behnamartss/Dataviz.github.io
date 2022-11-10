@@ -1,13 +1,13 @@
-neighborhood,count
-Circoscrizione n. 1 - GARDOLO,1651
-Circoscrizione n. 10 - OLTREFERSINA,2695
-Circoscrizione n. 11 - S.GIUSEPPE-S.CHIARA,3024
-Circoscrizione n. 12 - CENTRO STORICO PIEDICASTELLO,2964
-Circoscrizione n. 2 - MEANO,206
-Circoscrizione n. 3 - BONDONE,292
-Circoscrizione n. 4 - SARDAGNA,38
-Circoscrizione n. 5 - RAVINA-ROMAGNANO,319
-Circoscrizione n. 6 - ARGENTARIO,454
-Circoscrizione n. 7 - POVO,189
-Circoscrizione n. 8 - MATTARELLO,264
-Circoscrizione n. 9 - VILLAZZANO,416
+,neighborhood,count
+0,ARGENTARIO,454
+1,BONDONE,292
+2,CENTRO STORICO PIEDICASTELLO,2964
+3,GARDOLO,1651
+4,MATTARELLO,264
+5,MEANO,206
+7,OLTREFERSINA,2695
+8,POVO,189
+9,RAVINA-ROMAGNANO,319
+10,S.GIUSEPPE-S.CHIARA,3024
+11,SARDAGNA,38
+12,VILLAZZANO,416
