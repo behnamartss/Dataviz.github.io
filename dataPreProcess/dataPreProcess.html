@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    d3.select("body").append("p").text("Hello World!");
+    (async function() {
+        const neighborhoods = await d3.json("/data/circoscrizioni.json");
+        var geo_data_trees =  await d3.json("/data/geo_data_trees.geojson");
+
+        for (let index = 0; index < geo_data_trees.features.length; index++) {
+            if (geo_data_trees.features[index].geometry != null) {
+                neighborhood = neighborhoods.features.filter((neighborhood) =>
+                { return !d3.geoContains(neighborhood, geo_data_trees.features[index].geometry.coordinates)});
+                geo_data_trees.features[index].properties["neighborhood"] = neighborhood[0].properties.nome;
+            } else {
+                geo_data_trees.features[index].properties["neighborhood"] = null;
+            }
+            geo_data_trees.features[index].properties["DBH (cm)"] =
+                parseFloat(geo_data_trees.features[index].properties["DBH (cm)"]) || null;
+
+            geo_data_trees.features[index].properties["Replacement Value (eur)"] =
+                parseFloat(geo_data_trees.features[index].properties["Replacement Value (eur)"]) || null;
+
+            geo_data_trees.features[index].properties["Carbon Storage (kg)"] =
+                parseFloat(geo_data_trees.features[index].properties["Carbon Storage (kg)"]) || null;
+
+            geo_data_trees.features[index].properties["Carbon Storage (eur)"] =
+                parseFloat(geo_data_trees.features[index].properties["Carbon Storage (eur)"]) || null;
+
+            geo_data_trees.features[index].properties["Gross Carbon Sequestration (kg/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Gross Carbon Sequestration (kg/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Gross Carbon Sequestration (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Gross Carbon Sequestration (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Avoided Runoff (mcube/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Avoided Runoff (mcube/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Avoided Runoff (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Avoided Runoff (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Carbon Avoided (kg/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Carbon Avoided (kg/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Carbon Avoided (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Carbon Avoided (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Pollution Removal (g/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Pollution Removal (g/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Pollution Removal (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Pollution Removal (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Energy Savings (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Energy Savings (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Total Annual Benefits (eur/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Total Annual Benefits (eur/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Oxygen Production (kg/yr)"] =
+                parseFloat(geo_data_trees.features[index].properties["Oxygen Production (kg/yr)"]) || null;
+
+            geo_data_trees.features[index].properties["Height (m)"] =
+                parseFloat(geo_data_trees.features[index].properties["Height (m)"]) || null;
+
+            geo_data_trees.features[index].properties["Crown Height (m)"] =
+                parseFloat(geo_data_trees.features[index].properties["Crown Height (m)"]) || null;
+
+            geo_data_trees.features[index].properties["Crown Width (m)"] =
+                parseFloat(geo_data_trees.features[index].properties["Crown Width (m)"]) || null;
+
+            geo_data_trees.features[index].properties["Canopy Cover (m2)"] =
+                parseFloat(geo_data_trees.features[index].properties["Canopy Cover (m2)"]) || null;
+
+            geo_data_trees.features[index].properties["Leaf Area (m2)"] =
+                parseFloat(geo_data_trees.features[index].properties["Leaf Area (m2)"]) || null;
+
+            geo_data_trees.features[index].properties["Leaf Biomass (kg)"] =
+                parseFloat(geo_data_trees.features[index].properties["Leaf Biomass (kg)"]) || null;
+        }
+
+
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(geo_data_trees));
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("download", "new.json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+
+
+    })();
+</script>
+</body>
+</html>
