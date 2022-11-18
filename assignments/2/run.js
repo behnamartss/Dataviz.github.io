@@ -8,10 +8,12 @@ const featuresList = data.features;
 // query from your data here
 let plotBoxData = [];
 featuresList.forEach(element => {
-    plotBoxData.push({
-        height: element.properties["Height (m)"],
-        co2: element.properties["Carbon Storage (kg)"]
-    });
+    if (element.properties["Height (m)"] !== null) {
+        plotBoxData.push({
+            height: element.properties["Height (m)"],
+            co2: element.properties["Carbon Storage (kg)"]
+        });
+    }
 });
 
 // call the needed chart here
@@ -20,8 +22,8 @@ const output = await Chart.BoxPlot(plotBoxData, {
     y: d => d.co2,
     xLabel: "Tree Size →",
     yLabel: "↑ CO2 Stored",
-    width: 1080,
-    height: 3000
+    width: 900,
+    height: 600
 });
 
 document.body.appendChild(output);
