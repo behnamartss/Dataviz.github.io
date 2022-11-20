@@ -24,8 +24,8 @@
 //     .attr("height", 140);
     
 // });
-var w = 1500
-var h = 1000
+var w = 2000
+var h = 700
 var numCols = 5;
 
 var margin = {
@@ -56,39 +56,66 @@ var svg=d3.select("body").select('svg')
     const data = await d3.csv("../data/assignment1_final.csv");
     var tree_percentage=[]
     var temp=[]
-    var neighborhoods=d3.group(data,d=>d.neighborhood,d => d.neighborhood.Name) ;  // this worked too d.neighborhood
+    var selected_trees=['Celtis australis','Aesculus hippocastanum','Carpinus betulus','Tilia cordata','Platanus x hispanica']
+    var neighborhoods=d3.group(data,d=>d.neighborhood,d => d.Name) ;  // this worked too d.neighborhood
     //neighborhoods.forEach((element,index)=>{console.log(element)}) ;
     //var result = d3.group(data, d => d.properties.neighborhood, d => d.properties.Name);
-            neighborhoods.forEach((element, index) => {
-              if(temp.length>0)
-             { tree_percentage.push([temp])
-              temp=[]
-            }
-              element.forEach((value, key) => {
-                value.forEach(value2=>{ temp.push([value2.neighborhood,value2.Name,d3.range(Math.round( value2.tree_percentage ))]) ;
-                });
+
+    //// kaj fahmi part //////
+            // neighborhoods.forEach((element, index) => {
+            //   element.forEach((value, key) => {
+            //     value.forEach(value2=>{ temp.push([value2.neighborhood,value2.Name,d3.range(Math.round( value2.tree_percentage ))]) ;
+            //     });
                 
                 
-              });
+            //   });
+            // });
+
+  //// end of kaj fahmi part //////
+let topTreesPercentage = 0;
+neighborhoods.forEach((element, index) => {
+    topTreesPercentage = 0;
+    element.forEach((value, key) => {
+        if (selected_trees.includes(key)) {
+            tree_percentage.push({
+                neighborhood: index,
+                Name: key,
+                percentage: Math.round(parseFloat(value[0]['tree_percentage']))
             });
-    //console.log(neighborhoods)
-    //console.log(data[0]['neighborhood'])     kar ham kard okeye
+            topTreesPercentage += Math.round(parseFloat(value[0]['tree_percentage']));
+        }
+    });
+    tree_percentage.push({
+        neighborhood: index,
+        Name: "otherTypes",
+        percentage: 100 - topTreesPercentage
+    });
+});
+
+//console.log(data[0]['neighborhood'])     kar ham kard okeye
 
    // var neighborhoods=d3.group(data,d=>d.neighborhood)   // this worked too d.neighborhood
 
 
-   //////////////////////test part is here//////////////////////
-   tree_percentage.forEach((element,index)=>{
-    element.forEach((value,key) => {
-      value.forEach(( value2)=>{console.log( value2[2]);} )
+   //////////////////////test part is heeeeeere//////////////////////
+
+  //  tree_percentage.forEach((element,index)=>{
+  //   element.forEach((value,key) => {
+  //     value.forEach(( value2)=>{console.log( value2[2]);} )
       
       
-      })
-      //console.log(value);
-  })
-  //console.log(tree_percentage)
+  //     })
+  //     console.log(value);
+  // })
+ //console.log(tree_percentage);
+ //var test=d3.group(tree_percentage,d=>d.neighborhood);
+ //console.log(test);
+
+
+// console.log(tree_percentage);
+
 //tree_percentage.forEach(element=>{return element;});
-/////////////////// test part is hereeeee ///////////////////
+/////////////////// end of test part is hereeeee ///////////////////
 
 
 
@@ -101,7 +128,7 @@ var svg=d3.select("body").select('svg')
 // .attr('height',100)
 // .attr('x',0)
 // .attr('y',0);
-const colors = ["#FF8E79", "#0000FF", "#000000", "#DB1D25","#FF0000"];
+//const colors = ["#FF8E79", "#0000FF", "#000000", "#DB1D25","#FF0000"];
 
     //  var scaleColor = d3.scaleOrdinal()
     //   .domain(
@@ -115,53 +142,57 @@ const colors = ["#FF8E79", "#0000FF", "#000000", "#DB1D25","#FF0000"];
     //   )
     //   .range(colors);
 
-var chart=svg.selectAll('g')  
+var chart=svg.selectAll('rect')  
     .data(neighborhoods)
-    .enter()    
+    .enter()
+    
     .append('g')
-    .attr('class',d=>d[0])
-    .attr("transform", function(d, i){ 
+    .attr('id',d=>d[0])
+    .attr("transform", function (d, i) {
+        if (d[0] == "S.GIUSEPPE-S.CHIARA") {
+            return "translate(100," + ((i * 20)) + ")"
+        }
       if(d[0] == "ARGENTARIO"){
-      
-        {return "translate(100," + ((i * 20)) + ")" 
+
+        {return "translate(100," + ((i * 20)) + ")"
         }
       }
       if(d[0] == "BONDONE"){
         console.log(i)
-        return "translate(300," + ((i * 20)) + ")" 
-        
+        return "translate(300," + ((i * 20)) + ")"
+
       }
       if(d[0] == "CENTRO STORICO PIEDICASTELLO"){
-        return "translate(400," + ((i * 20)) + ")" 
+        return "translate(400," + ((i * 20)) + ")"
       }
       if(d[0] == "GARDOLO"){
-        return "translate(500," + ((i * 20)) + ")" 
+        return "translate(500," + ((i * 20)) + ")"
       }
       if(d[0] == "MATTARELLO"){
-        return "translate(600," + ((i * 20)) + ")" 
+        return "translate(600," + ((i * 20)) + ")"
       }
       if(d[0] == "MEANO"){
-        return "translate(700," + ((i * 20)) + ")" 
+        return "translate(700," + ((i * 20)) + ")"
       }
       if(d[0] == "OLTREFERSINA"){
-        return "translate(800," + ((i * 20)) + ")" 
+        return "translate(800," + ((i * 20)) + ")"
       }
       if(d[0] == "POVO"){
-        return "translate(900," + ((i * 20)) + ")" 
+        return "translate(900," + ((i * 20)) + ")"
       }
       if(d[0] == "RAVINA-ROMAGNANO"){
-        return "translate(1000," + ((i * 20)) + ")" 
+        return "translate(1000," + ((i * 20)) + ")"
       }
       if(d[0] == "S.GIUSEPPE-S.CHIARA"){
-        return "translate(1100," + ((i * 20)) + ")" 
+        return "translate(1100," + ((i * 20)) + ")"
       }
       if(d[0] == "SARDAGNA"){
         "translate(10," + 300 + ")"
       }
       if(d[0] == "VILLAZZANO"){
-        return "translate(1300,600)" 
+        return "translate(1300,600)"
       }
-      
+
        else {
         return "translate(10," + ((i * 150)) + ")"
       }
@@ -170,55 +201,106 @@ var chart=svg.selectAll('g')
      .attr('height',900)
     .attr("width", 300)
     .attr("height", 300)
+    .style("fill-opacity", .2) // set the fill opacity
+    .style("stroke", "red")    // set the line colour
+    .style("fill", "green")  // set the fill colour
     .attr("transform", function (d,i) {
       var translate= [110*i,0];
      return "translate(" + translate[0] + ", " + translate[1] + ")"
-    });
-
-    var tree=chart.selectAll('rect')
-   //.data(tree_percentage,tree_percentage.map(function (d) { return d[2]; }))
-    .data(
-     tree_percentage
-      ,tree_percentage.forEach((element,index)=>{
-            element.forEach((value,key) => {
-              value.forEach(( value2)=>{return value2[2]} )
-              //console.log(value)
-              //return value;
-              })
-             // console.log(value);
-          })
-      
-        
-          
-    )
-   .enter()
-    .append('rect')
-    .attr('class',function (element,index) {
-     return index;
-      
     })
-    .attr('id',function (element,index) {
-      return element;
-      // element.forEach((value,key)=>{
-      //    value.forEach(value2 => {
-      //      return value2;
-      //    });
-      //   //console.log(value);
-      //   //return value;
-      // })
-       
-     })
-    .attr("width", 10)
-    .attr("height", 10)
-    .attr("x", function(d, i){
-      var colIndex = i % numCols
-      return colIndex * 24
-    })
-    .attr("y", function(d, i){
-      var rowIndex = Math.floor(i/numCols)
-      return rowIndex * 24
-    })
+    .append('text')
+    .text(d=>d[0])
+	  .attr("x", 8*50)
+	  .attr("y", 0)
+	  .attr("dx", 8*20)
+	  .attr("dy",0)
     
+    .attr("transform", "rotate(90)" );
+console.log(...neighborhoods.keys())
+const listNeighborhoods = [...neighborhoods.keys()];
+let finalData = [];
+let tempData = [];
+
+listNeighborhoods.forEach(n => {
+    tree_percentage.filter(e => {return n === e.neighborhood})
+        .forEach(element => {
+            for (let i=0; i < element.percentage; i++) tempData.push(element);
+        });
+    finalData.push(tempData);
+    tempData = [];
+});
+console.log(finalData)
+const colors = d3.schemeSpectral[selected_trees.length+1];
+for (let i=0; i<listNeighborhoods.length; i++) {
+    chart.select("#" + listNeighborhoods[i])
+        // .data(tree_percentage,tree_percentage.map(function (d) { return d[2]; }))
+        .data(
+            finalData[i]
+        )
+        .enter()
+        .append('rect')
+        .attr('class',function (element,index) {
+            return index;
+        })
+        .attr('id',function (element,index) {
+            return element.Name;
+            // element.forEach((value,key)=>{
+            //    value.forEach(value2 => {
+            //      return value2;
+            //    });
+            //   //console.log(value);
+            //   //return value;
+            // })
+
+        })
+        
+        .attr("fill", function(d, i) { 
+          switch(d.Name) {
+            case 'Celtis australis':
+              return colors[0]
+              break;
+            case 'Aesculus hippocastanum':  
+            return colors[1]   
+              // code block
+              break;
+              case 'Carpinus betulus':
+                return colors[2]
+              break;
+              case 'Tilia cordata':
+                return colors[3]
+              break;
+              case 'Platanus x hispanica':
+                return colors[4]
+              break;
+            
+              // code block
+          }
+          
+      })
+        .attr("width", 10)
+        .attr("height", 10)
+        .attr("x", function(d, ind){
+            var colIndex = ind % numCols
+            return (colIndex * 24) + (i * 30 * numCols)
+        })
+        .attr("y", function(d, ind){
+            var rowIndex = Math.floor(ind/numCols)
+            return rowIndex * 24
+        })
+ var legend = d3.selectAll('#legend')       
+}
+legend.attr('width',1500)
+legend.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", colors[0])
+legend.append("circle").attr("cx",400).attr("cy",130).attr("r", 6).style("fill", colors[1])
+legend.append("circle").attr("cx",600).attr("cy",130).attr("r", 6).style("fill", colors[2])
+legend.append("circle").attr("cx",800).attr("cy",130).attr("r", 6).style("fill", colors[3])
+legend.append("circle").attr("cx",1000).attr("cy",130).attr("r", 6).style("fill", colors[4])
+
+legend.append("text").attr("x", 200).attr("y", 130).text(selected_trees[0]).style("font-size", "15px").attr("alignment-baseline","middle")
+legend.append("text").attr("x", 400).attr("y", 130).text(selected_trees[1]).style("font-size", "15px").attr("alignment-baseline","middle")
+legend.append("text").attr("x", 600).attr("y", 130).text(selected_trees[2]).style("font-size", "15px").attr("alignment-baseline","middle")
+legend.append("text").attr("x", 800).attr("y", 130).text(selected_trees[3]).style("font-size", "15px").attr("alignment-baseline","middle")
+legend.append("text").attr("x", 1000).attr("y", 130).text(selected_trees[4]).style("font-size", "15px").attr("alignment-baseline","middle") 
 
 
 
