@@ -45,7 +45,9 @@ var height = h - margin.top - margin.bottom;
 
 var svg=d3.select("body").select('svg')
 .attr('width',w)
-.attr('height',h);
+.attr('height',h)
+.style('margin-top',50);
+
 
 
 
@@ -211,7 +213,7 @@ var chart=svg.selectAll('rect')
     .append('text')
     .text(d=>d[0])
 	  .attr("x", 8*50)
-	  .attr("y", 0)
+	  .attr("y", 50)
 	  .attr("dx", 8*20)
 	  .attr("dy",0)
     
