@@ -89,7 +89,7 @@ let filtered_data=[]
   // Add a scale for bubble size
   var z = d3.scaleSqrt()
     //.domain([200000, 1310000000])
-    .domain([0, 600])
+    .domain([0, 400])
     .range([ 2, 10]);
 
   // Add a scale for bubble color
@@ -119,7 +119,7 @@ let filtered_data=[]
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Country: " + d.Name)
+      .html("Tree: " + d.Name)
       .style("left", (event.x)/2 + "px")
       .style("top", (event.y)/2-50 + "px")
   }
