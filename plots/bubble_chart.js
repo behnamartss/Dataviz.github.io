@@ -90,7 +90,7 @@ let filtered_data=[]
   var z = d3.scaleSqrt()
     //.domain([200000, 1310000000])
     .domain([0, 400])
-    .range([ 2, 10]);
+    .range([ 2, 30]);
 
   // Add a scale for bubble color
   var myColor = d3.scaleOrdinal()
@@ -168,7 +168,7 @@ let filtered_data=[]
       .attr("class", function(d) { return "bubbles " + d.Name })
       .attr("cx", function (d) { return x(parseFloat(d['Height (m)'])); } )
       .attr("cy", function (d) { return y(parseFloat(d['Carbon Storage (kg)'])); } )
-      .attr("r", function (d) { return z(parseFloat(d['Canopy Cover (m2)'])); } )
+      .attr("r", function (d) { return z(parseFloat(d['Crown Width (m)'])); } )
       .style("fill", function (d) { return myColor(d.Name); } )
     // -3- Trigger the functions for hover
     .on("mouseover", showTooltip )
