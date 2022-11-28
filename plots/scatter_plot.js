@@ -5,18 +5,8 @@ var margin = {top: 40, right: 150, bottom: 60, left: 70},
     width = 700 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
 
-//const data = await d3.csv("../data/assignment1_final.csv");
-
-// notice: I first calculated the 6 most populated trees among all the neighborhoods in a descending order. 
+    // notice: I first calculated the 6 most populated trees among all the neighborhoods in a descending order. 
 //And using that list, I extracted rows with the name of selected trees,
 const total = await d3.csv("../data/Tree_names copy.csv");
 
@@ -52,6 +42,34 @@ let filtered_data=[]
     filtered_data.push(element)
    });
     console.log(filtered_data[3])
+
+
+// append the svg object to the body of the page
+for(var i=0;i<=6;i++){
+  var selector=[]
+var svg = d3.select("#my_dataviz"+i.toString())
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+filtered_data.forEach((element,index)=>{
+ if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')=='All')
+ selector=filtered_data;
+ else
+  if( document.getElementById('my_dataviz'+i.toString()).getAttribute('class')==element.Name)
+    {
+      selector.push(element)
+      console.log(document.getElementById('my_dataviz'+i.toString()).getAttribute('class'))
+    }
+   
+   
+    //console.log('manaaam',element.Name)
+})
+//const data = await d3.csv("../data/assignment1_final.csv");
+
+
   // ---------------------------//
   //       AXIS  AND SCALE      //
   // ---------------------------//
@@ -103,7 +121,9 @@ let filtered_data=[]
   // ---------------------------//
 
   // -1- Create a tooltip div that is hidden by default:
-  const tooltip = d3.select("#my_dataviz")
+  
+
+  const tooltip = d3.select("#my_dataviz"+i.toString())
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
@@ -143,9 +163,11 @@ let filtered_data=[]
   // What to do when one group is hovered
   const highlight = function(event, d){
     // reduce opacity of all groups
-    d3.selectAll(".bubbles").style("opacity", .05)
+    //d3.selectAll(".scatters").style("opacity", .05)
     // expect the one that is hovered
     d3.selectAll("."+d).style("opacity", 1)
+    
+    //document.getElementsByClassName('[class^="scatters"]'+d).style.opacity='1';
   }
 
   // And when it is not hovered anymore
@@ -162,12 +184,14 @@ let filtered_data=[]
   // Add dots
   svg.append('g')
     .selectAll("dot")
-    .data(filtered_data)
+    .data(selector)
     .enter()
     .append("circle")
-      .attr("class", function(d) { return "bubbles " + d.Name })
+     // .attr("class", function(d) { return "scatters " + d.Name })
+     .attr("class", function(d) { return "scatters " + d.Name })
       .attr("cx", function (d) { return x(parseFloat(d['Height (m)'])); } )
       .attr("cy", function (d) { return y(parseFloat(d['Carbon Storage (kg)'])); } )
+      .attr("r", function (d) { return z(parseFloat(d['Crown Width (m)'])); } )
       .style("fill", function (d) { return myColor(d.Name); } )
     // -3- Trigger the functions for hover
     .on("mouseover", showTooltip )
@@ -190,7 +214,7 @@ let filtered_data=[]
       .join("circle")
         .attr("cx", xCircle)
         .attr("cy", d => height - 100 - z(d))
-        .attr("r", d => z(d))
+        
         .style("fill", "none")
         .attr("stroke", "black")
 
@@ -254,3 +278,6 @@ let filtered_data=[]
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
  // })
+
+}
+
