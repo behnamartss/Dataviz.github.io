@@ -119,7 +119,7 @@ let filtered_data=[]
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Tree: " + d.Name)
+      .html("Tree: " + d.Name + "\n Width:"+ d['Crown Width (m)'])
       .style("left", (event.x)/2 + "px")
       .style("top", (event.y)/2-50 + "px")
   }
