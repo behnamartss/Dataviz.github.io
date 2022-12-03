@@ -133,6 +133,7 @@ filtered_data.forEach((element,index)=>{
       .style("color", "white")
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+ 
   const showTooltip = function(event,d) {
     tooltip
       .transition()
@@ -154,7 +155,7 @@ filtered_data.forEach((element,index)=>{
       .duration(200)
       .style("opacity", 0)
   }
-
+  
 
   // ---------------------------//
   //       HIGHLIGHT GROUP      //
@@ -163,16 +164,16 @@ filtered_data.forEach((element,index)=>{
   // What to do when one group is hovered
   const highlight = function(event, d){
     // reduce opacity of all groups
-    //d3.selectAll(".scatters").style("opacity", .05)
+    d3.selectAll("circle").style("opacity", .05)
     // expect the one that is hovered
-    d3.selectAll("."+d).style("opacity", 1)
+    d3.selectAll(".scatters-" + d.replaceAll(" ", "-")).style("opacity", 1)
     
     //document.getElementsByClassName('[class^="scatters"]'+d).style.opacity='1';
   }
 
   // And when it is not hovered anymore
   const noHighlight = function(event, d){
-    d3.selectAll(".bubbles").style("opacity", 1)
+    d3.selectAll("circle").style("opacity", 1)
   }
 
 
@@ -188,7 +189,7 @@ filtered_data.forEach((element,index)=>{
     .enter()
     .append("circle")
      // .attr("class", function(d) { return "scatters " + d.Name })
-     .attr("class", function(d) { return "scatters " + d.Name })
+     .attr("class", function(d) { return "scatters-" + d.Name.replaceAll(' ','-') })
       .attr("cx", function (d) { return x(parseFloat(d['Height (m)'])); } )
       .attr("cy", function (d) { return y(parseFloat(d['Carbon Storage (kg)'])); } )
       .attr("r", function (d) { return z(parseFloat(d['Crown Width (m)'])); } )
@@ -208,6 +209,7 @@ filtered_data.forEach((element,index)=>{
     const valuesToShow = [10000000, 100000000, 1000000000]
     const xCircle = 390
     const xLabel = 440
+
     svg
       .selectAll("legend")
       .data(valuesToShow)
@@ -253,17 +255,25 @@ filtered_data.forEach((element,index)=>{
     // Add one dot in the legend for each name.
     const size = 20
     const allgroups = sorted_selected_names
+
+    
     svg.selectAll("myrect")
       .data(allgroups)
       .join("circle")
         .attr("cx", 390)
         .attr("cy", (d,i) => 10 + i*(size+5)) // 100 is where the first dot appears. 25 is the distance between dots
         .attr("r", 7)
-        .style("fill", d =>  myColor(d))
+        .style('fill',(function (d){
+          if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')=='All')
+            return myColor(d);
+         else if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')==d)
+            return myColor(d);
+        }))
         .attr('width',100)
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
-
+    
+ 
     // Add labels beside legend dots
     svg.selectAll("mylabels")
       .data(allgroups)
@@ -272,7 +282,18 @@ filtered_data.forEach((element,index)=>{
         .attr("x", 390 + size*.8)
         .attr("y", (d,i) =>  i * (size + 5) + (size/2)) // 100 is where the first dot appears. 25 is the distance between dots
         .style("fill", d => myColor(d))
-        .text(d => d)
+        // .style('fill',(function (d){
+        //   if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')=='All')
+        //     return myColor(d);
+        //  else if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')==d)
+        //     return myColor(d);
+        // }))
+        .text(function (d){
+          if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')=='All')
+            return d;
+         else if(document.getElementById('my_dataviz'+i.toString()).getAttribute('class')==d)
+            return d;
+        })
         .attr("text-anchor", "left")
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
