@@ -142,15 +142,18 @@ let filtered_data=[]
 
   // What to do when one group is hovered
   const highlight = function(event, d){
+  
     // reduce opacity of all groups
-    d3.selectAll(".bubbles").style("opacity", .05)
+    d3.selectAll("circle").style("opacity", .01)
     // expect the one that is hovered
-    d3.selectAll("."+d).style("opacity", 1)
+    // NOTICE: We can not give a class with spaces so replaced it with "-"" . CSS can receive many classes at the same tim, but for d3.selectAll, you have to pass only one class.
+    // so we overcome this by replacing spaces with "-" 
+    d3.selectAll(".bubbles-" + d.replaceAll(" ", "-")).style("opacity", 1)
   }
 
   // And when it is not hovered anymore
   const noHighlight = function(event, d){
-    d3.selectAll(".bubbles").style("opacity", 1)
+    d3.selectAll("circle").style("opacity", 1)
   }
 
 
@@ -165,7 +168,7 @@ let filtered_data=[]
     .data(filtered_data)
     .enter()
     .append("circle")
-      .attr("class", function(d) { return "bubbles " + d.Name })
+      .attr("class", function(d) {  return "bubbles-" + d.Name.replaceAll(" ", "-") })
       .attr("cx", function (d) { return x(parseFloat(d['Height (m)'])); } )
       .attr("cy", function (d) { return y(parseFloat(d['Carbon Storage (kg)'])); } )
       .attr("r", function (d) { return z(parseFloat(d['Crown Width (m)'])); } )
