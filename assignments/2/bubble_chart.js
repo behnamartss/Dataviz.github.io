@@ -18,8 +18,8 @@ var svg = d3.select("#my_dataviz")
 
 // notice: I first calculated the 6 most populated trees among all the neighborhoods in a descending order. 
 //And using that list, I extracted rows with the name of selected trees,
-const total = await d3.csv("../../dataPreProcess/Tree_names copy.csv");
-console.log(total)
+const total = await d3.csv("../data/Tree_names copy.csv");
+
 const sorted=total.sort(function (a,b) {
     return d3.descending(parseInt(a.count),parseInt(b.count));
 })
@@ -37,7 +37,7 @@ let filtered_data=[]
 
 //Read the data
 //d3.csv("../data/assignment2_final.csv", function(data) {
-    const data = await d3.csv("../../dataPreProcess/assignment2_final.csv");
+    const data = await d3.csv("../data/assignment2_final.csv");
     // let data2=[]
     // data2.push(data);
     // sorted_selected_names.forEach(n => {
@@ -142,15 +142,18 @@ let filtered_data=[]
 
   // What to do when one group is hovered
   const highlight = function(event, d){
+  
     // reduce opacity of all groups
-    d3.selectAll(".bubbles").style("opacity", .05)
+    d3.selectAll("circle").style("opacity", .01)
     // expect the one that is hovered
-    d3.selectAll("."+d).style("opacity", 1)
+    // NOTICE: We can not give a class with spaces so replaced it with "-"" . CSS can receive many classes at the same tim, but for d3.selectAll, you have to pass only one class.
+    // so we overcome this by replacing spaces with "-" 
+    d3.selectAll(".bubbles-" + d.replaceAll(" ", "-")).style("opacity", 1)
   }
 
   // And when it is not hovered anymore
   const noHighlight = function(event, d){
-    d3.selectAll(".bubbles").style("opacity", 1)
+    d3.selectAll("circle").style("opacity", 1)
   }
 
 
@@ -165,7 +168,7 @@ let filtered_data=[]
     .data(filtered_data)
     .enter()
     .append("circle")
-      .attr("class", function(d) { return "bubbles " + d.Name })
+      .attr("class", function(d) {  return "bubbles-" + d.Name.replaceAll(" ", "-") })
       .attr("cx", function (d) { return x(parseFloat(d['Height (m)'])); } )
       .attr("cy", function (d) { return y(parseFloat(d['Carbon Storage (kg)'])); } )
       .attr("r", function (d) { return z(parseFloat(d['Crown Width (m)'])); } )
