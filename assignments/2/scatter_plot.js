@@ -8,7 +8,7 @@ var margin = {top: 40, right: 150, bottom: 60, left: 70},
 
     // notice: I first calculated the 6 most populated trees among all the neighborhoods in a descending order. 
 //And using that list, I extracted rows with the name of selected trees,
-const total = await d3.csv("../data/Tree_names copy.csv");
+const total = await d3.csv("/data/dataPreProcess/Tree_names copy.csv");
 
 const sorted=total.sort(function (a,b) {
     return d3.descending(parseInt(a.count),parseInt(b.count));
@@ -27,7 +27,7 @@ let filtered_data=[]
 
 //Read the data
 //d3.csv("../data/assignment2_final.csv", function(data) {
-    const data = await d3.csv("../data/assignment2_final.csv");
+    const data = await d3.csv("/data/dataPreProcess/assignment2_final.csv");
     // let data2=[]
     // data2.push(data);
     // sorted_selected_names.forEach(n => {

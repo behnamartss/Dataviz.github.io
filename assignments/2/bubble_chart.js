@@ -6,7 +6,7 @@ var margin = {top: 40, right: 150, bottom: 60, left: 70},
     height = 420 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#bubbleChart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -18,7 +18,7 @@ var svg = d3.select("#my_dataviz")
 
 // notice: I first calculated the 6 most populated trees among all the neighborhoods in a descending order. 
 //And using that list, I extracted rows with the name of selected trees,
-const total = await d3.csv("../data/Tree_names copy.csv");
+const total = await d3.csv("/data/dataPreProcess/Tree_names copy.csv");
 
 const sorted=total.sort(function (a,b) {
     return d3.descending(parseInt(a.count),parseInt(b.count));
@@ -36,8 +36,8 @@ sorted_selected.forEach((element,index)=>{
 let filtered_data=[]
 
 //Read the data
-//d3.csv("../data/assignment2_final.csv", function(data) {
-    const data = await d3.csv("../data/assignment2_final.csv");
+//d3.csv("/data/dataPreProcess/assignment2_final.csv", function(data) {
+    const data = await d3.csv("/data/dataPreProcess/assignment2_final.csv");
     // let data2=[]
     // data2.push(data);
     // sorted_selected_names.forEach(n => {
@@ -103,7 +103,7 @@ let filtered_data=[]
   // ---------------------------//
 
   // -1- Create a tooltip div that is hidden by default:
-  const tooltip = d3.select("#my_dataviz")
+  const tooltip = d3.select("#bubbleChart")
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
