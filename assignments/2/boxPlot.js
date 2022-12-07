@@ -1,4 +1,3 @@
-import * as d3 from "https://cdn.skypack.dev/d3@7";
 import * as Chart from "/lib/charts.js";
 
 // load the data here
@@ -26,4 +25,4 @@ const output = await Chart.BoxPlot(plotBoxData, {
     height: 600
 });
 
-document.body.appendChild(output);
+document.getElementById("boxplot").appendChild(output);

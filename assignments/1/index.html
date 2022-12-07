@@ -1,16 +1,132 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Lioninside | Data Visualisation</title>
+
+    <!-- Font and Bootstrap -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
+
+
+
 </head>
+
 <body>
-<a href="/">home</a>
-<footer>
-    <script src="./run.js" type="module"></script>
-</footer>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-blue">
+        <a class="navbar-brand" href="#">Lion Inside</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/assignments/1/">first assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/assignments/2/">second assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+
+    <!-- Introduction to the team and task
+  ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="container marketing">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Bar Chart</h2>
+            </div>
+        </div>
+        <hr>
+        <div id="barchart"></div>
+
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Stacked Bar Chart</h2>
+            </div>
+        </div>
+        <hr>
+        <div id="stackedBarchart"></div>
+
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Stacked Bar Chart 100%</h2>
+            </div>
+        </div>
+        <hr>
+        <div id="stackedBarchart100"></div>
+
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Waffle Chart</h2>
+            </div>
+        </div>
+        <hr>
+        <div id="waffleChart"></div>
+        <svg >
+        </svg>
+        <svg id="legend"></svg>
+
+
+    </div><!-- /.container -->
+</main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<!--  charts js files goes here  -->
+<script src="./barChart.js" type="module"></script>
+<script src="./stackedBarchart100.js" type="module"></script>
+<script src="./stackedBarchart.js" type="module"></script>
+<script src="./waffle_chart.js" type="module"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+<script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 </body>
+
 </html>
+

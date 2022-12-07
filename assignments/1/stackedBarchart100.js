@@ -1,4 +1,3 @@
-import * as d3 from "https://cdn.skypack.dev/d3@7";
 import * as Chart from "/lib/charts.js";
 
 // load the data here
@@ -47,34 +46,6 @@ finalData.forEach(element => {
     });
 });
 
-
-// query for ass1-plot1
-// var result = d3.group(featuresList, d => d.properties.Name);
-// var finalData = [];
-// result.forEach((value, key) => {
-//   finalData.push({key: key, value: d3.count(value, d => d.properties["Tree ID"])});
-// });
-// console.log(d3.sort(finalData, (a,b) => d3.descending(a.value, b.value)));
-//
-// result.forEach((value, key) => {
-//     finalData.push({
-//         key: key,
-//         count: d3.count(value, d => d.properties["Tree ID"]),
-//         meanCanopy: d3.mean(value, d => d.properties["Canopy Cover (m2)"])
-//     });
-// });
-// finalData = d3.sort(finalData, (a, b) => d3.descending(a.count, b.count));
-
-// call the needed chart here
-// const barChartSVG = await Chart.BarChart(finalData, {
-//     x: d => d.key,
-//     y: d => d.count,
-//     yFormat: "#",
-//     yLabel: "number",
-//     width: 1080,
-//     height: 500,
-//     color: "steelblue"
-// });
 const stackedBarChartSVG = await Chart.StackedBarChart(finalDataPercentage, {
     x: d => d.count,
     y: d => d.neighborhood,
@@ -90,4 +61,4 @@ const stackedBarChartSVG = await Chart.StackedBarChart(finalDataPercentage, {
 });
 
 // add the chart to html page here
-document.body.appendChild(stackedBarChartSVG);
+document.getElementById("stackedBarchart100").appendChild(stackedBarChartSVG);
