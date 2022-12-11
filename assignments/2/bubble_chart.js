@@ -114,6 +114,7 @@ let filtered_data=[]
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   const showTooltip = function(event,d) {
+    
     tooltip
       .transition()
       .duration(200)
