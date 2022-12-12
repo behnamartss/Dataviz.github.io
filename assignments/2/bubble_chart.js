@@ -120,14 +120,16 @@ let filtered_data=[]
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Tree: " + d.Name + "\n Width:"+ d['Crown Width (m)'])
-      .style("left", (event.x)/2 + "px")
-      .style("top", (event.y)/2-50 + "px")
+      .html("Tree: " + d.Name + "<br> Width:"+ d['Crown Width (m)'])
+      .style("left", document.getElementById('#bubbleChart').getBoundingClientRect().x  + "50px")
+      .style("top", document.getElementById('#bubbleChart').getBoundingClientRect().y + "50px")
   }
   const moveTooltip = function(event, d) {
     tooltip
-      .style("left", (event.x)/2 + "px")
-      .style("top", (event.y)/2-50 + "px")
+      // .style("left", (event.x)/2 + "px")
+      // .style("top", (event.y)/2-50 + "px")
+      .style("left", document.getElementById('#bubbleChart').getBoundingClientRect().x  + "50px")
+      .style("top", document.getElementById('#bubbleChart').getBoundingClientRect().y+ "50px")
   }
   const hideTooltip = function(event, d) {
     tooltip
