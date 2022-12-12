@@ -1,7 +1,7 @@
-import * as Chart from "/lib/charts.js";
+import * as Chart from "../../lib/charts.js";
 
 // load the data here
-const data = await d3.json("/data/new.json");
+const data = await d3.json("../../data/new.json");
 const featuresList = data.features;
 
 // query from your data here

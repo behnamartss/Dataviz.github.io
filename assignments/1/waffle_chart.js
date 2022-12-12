@@ -55,7 +55,7 @@ var svg=d3.select("body").select('svg')
 
  //(async function() {
     
-    const data = await d3.csv("/data/dataPreProcess/assignment1_final.csv");
+    const data = await d3.csv("../../data/dataPreProcess/assignment1_final.csv");
     var tree_percentage=[]
     var temp=[]
     var selected_trees=['Celtis australis','Aesculus hippocastanum','Carpinus betulus','Tilia cordata','Platanus x hispanica']

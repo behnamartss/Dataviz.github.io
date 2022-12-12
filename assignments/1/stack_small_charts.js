@@ -1,4 +1,4 @@
- let data = await d3.json("/data/new.json");
+ let data = await d3.json("../../data/new.json");
  const width = 500; 
   const topTrees =
  ["Celtis australis", "Aesculus hippocastanum", "Carpinus betulus",

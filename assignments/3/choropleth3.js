@@ -1,8 +1,8 @@
-import * as Chart from "/lib/charts.js";
+import * as Chart from "../../lib/charts.js";
 
 // load the data here
-const circoscrizioni = (await d3.json("/data/circoscrizioni.json"));
-const data = await d3.json("/data/new.json");
+const circoscrizioni = (await d3.json("../../data/circoscrizioni.json"));
+const data = await d3.json("../../data/new.json");
 const featuresList = data.features;
 
 var result = d3.group(featuresList.slice(0, -1), d => d.properties.neighborhood);
