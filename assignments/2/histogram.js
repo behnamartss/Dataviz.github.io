@@ -2,7 +2,7 @@
     const el = "#histogram";
 
     // Data
-    d3.json("../../data/dataPreProcess/assignment2_final.cv").then(function (dataset) {
+    d3.json("../../data/dataPreProcess/assignment2_final.json").then(function (dataset) {
 
         // Dimensions
         let dimensions = {
