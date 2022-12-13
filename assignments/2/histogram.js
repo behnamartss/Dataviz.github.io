@@ -1,4 +1,4 @@
-function drawChart_histogram() {
+
     const el = "#histogram";
 
     // Data
@@ -169,6 +169,3 @@ function drawChart_histogram() {
         // default metric
         histogram(key_values[0]);
     });
-}
-
-drawChart_histogram();
