@@ -2,9 +2,7 @@ function drawChart_histogram() {
     const el = "#histogram";
 
     // Data
-    d3.json("../../data/dataPreProcess/assignment2_final.csv", function (dataset) {
-		
-		for (var i = 0; i < data.length; i++) {
+    d3.json("../../data/dataPreProcess/assignment2_final.js").then(function (dataset) {
 
         // Dimensions
         let dimensions = {
@@ -170,7 +168,7 @@ function drawChart_histogram() {
 
         // default metric
         histogram(key_values[0]);
-		}});
+    });
 }
 
 drawChart_histogram();
