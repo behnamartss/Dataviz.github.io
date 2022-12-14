@@ -1,5 +1,9 @@
+
+    const el = "#histogram";
+
     // Data
-    d3.json("../../data/dataPreProcess/assignment2_final.json", function (dataset) {
+    d3.json("../../data/dataPreProcess/assignment2_final.csv").then(function (dataset) {
+		
 		for (var i = 0; i < dataset.length; i++) {
 
         // Dimensions
@@ -31,7 +35,7 @@
 
         // Draw Image
         const svg = d3
-            .select("#histogram")
+            .select(el)
             .append("svg")
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
