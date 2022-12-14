@@ -1,3 +1,4 @@
+<script>
 // Data
     d3.csv("../../data/dataPreProcess/assignment2_histogram.csv", function (dataset) {
 		for (var i = 0; i < dataset.length; i++) {
@@ -167,3 +168,4 @@
         // default metric
         histogram(key_values[0]);
 		}});
+</script>
