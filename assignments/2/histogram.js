@@ -1,4 +1,4 @@
-d3.csv("../../data/dataPreProcess/assignment2_histogram.csv").get (function (dataset) {
+d3.csv("../../data/dataPreProcess/assignment2_histogram.csv", function (dataset) {
 		
 
         // Dimensions
