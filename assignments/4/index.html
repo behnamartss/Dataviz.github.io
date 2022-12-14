@@ -1,3 +1,19 @@
+<!-- <html>
+    
+    <body>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+        
+    </body>
+   
+    <script src="radar.js" type="module"></script>
+</html> -->
+
 <!doctype html>
 <html lang="en">
 
@@ -55,10 +71,10 @@
                     <a class="nav-link" href="../2/">second assignment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">third assignment</a>
+                    <a class="nav-link" href="../3/">third assignment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../4/">Forth assignment</a>
+                    <a class="nav-link" href="#">Forth assignment</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -79,16 +95,16 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Choropleth Map 1</h2>
+                <h2 class="featurette-heading">Radar Chart</h2>
             </div>
         </div>
         <hr>
-        <div id="chropleth1"></div>
+        <div id="Radar_chart"></div>
 
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Choropleth Map 2</h2>
+                <h2 class="featurette-heading">Line Chart</h2>
             </div>
         </div>
         <hr>
@@ -97,27 +113,13 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Choropleth Map 3</h2>
+                <h2 class="featurette-heading">Rigidline</h2>
             </div>
         </div>
         <hr>
         <div id="chropleth3"></div>
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Choropleth Map 4</h2>
-            </div>
-        </div>
-        <hr>
-        <div id="chropleth4"></div>
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Choropleth Map 5</h2>
-            </div>
-        </div>
-        <hr>
-        <div id="chropleth5"></div>
+      
 
 
     </div><!-- /.container -->
@@ -129,11 +131,8 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 <!--  charts js files goes here  -->
-<script src="choropleth1.js" type="module"></script>
-<script src="choropleth2.js" type="module"></script>
-<script src="choropleth3.js" type="module"></script>
-<script src="choropleth4.js" type="module"></script>
-<script src="choropleth5.js" type="module"></script>
+<script src="radar.js" type="module"></script>
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -146,4 +145,3 @@
 </body>
 
 </html>
-
