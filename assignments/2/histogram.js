@@ -1,5 +1,5 @@
-d3.csv("../../data/dataPreProcess/assignment2_histogram.csv", function (dataset) {
-		for (var i = 0; i < dataset.length; i++) {
+d3.csv("../../data/dataPreProcess/assignment2_histogram.csv").get (function (dataset) {
+		
 
         // Dimensions
         let dimensions = {
@@ -165,4 +165,4 @@ d3.csv("../../data/dataPreProcess/assignment2_histogram.csv", function (dataset)
 
         // default metric
         histogram(key_values[0]);
-		}});
+		});
