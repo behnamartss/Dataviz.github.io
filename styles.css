@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+#histogram{
+  position: relative;
+  align-items: center;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
 
+#metric
+{
+  display: block;
+  width: 200px;
+  margin: 40px auto 40px auto;
+}
 .navbar-blue{
   background-color: #0984e3;
 }
