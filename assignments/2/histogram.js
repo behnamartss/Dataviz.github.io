@@ -1,10 +1,6 @@
-
-    const el = "#histogram";
-
-    // Data
-    d3.json("../../data/dataPreProcess/assignment2_final.csv").then(function (dataset) {
+// Data
+    d3.json("../../data/dataPreProcess/assignment2_final.json").then(function (dataset) {
 		
-		for (var i = 0; i < dataset.length; i++) {
 
         // Dimensions
         let dimensions = {
@@ -35,7 +31,7 @@
 
         // Draw Image
         const svg = d3
-            .select(el)
+            .select("#histogram")
             .append("svg")
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
@@ -170,4 +166,4 @@
 
         // default metric
         histogram(key_values[0]);
-		}});
+    });
