@@ -82,12 +82,7 @@
                 .range([dimensions.containerHeight, 0])
                 .nice();
 
-            // Transitions
-            let transitionDuration = 1000;
-            const exitTransition = d3.transition().duration(transitionDuration);
-            const updateTransition = exitTransition
-                .transition()
-                .duration(transitionDuration);
+           
 
             // Draw Bars
             barsGroup
