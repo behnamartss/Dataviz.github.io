@@ -1,6 +1,6 @@
 // Data
-    d3.json("../../data/dataPreProcess/assignment2_final.json").then(function (dataset) {
-		
+    d3.csv("../../data/dataPreProcess/assignment2_final.csv"), function (dataset) {
+		for (var i = 0; i < dataset.length; i++) {
 
         // Dimensions
         let dimensions = {
@@ -166,4 +166,4 @@
 
         // default metric
         histogram(key_values[0]);
-    });
+		}});
