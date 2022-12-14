@@ -1,5 +1,5 @@
 // Data
-    d3.csv("../../data/dataPreProcess/assignment2_final.csv"), function (dataset) {
+    d3.csv("../../data/dataPreProcess/assignment2_histogram.csv", function (dataset) {
 		for (var i = 0; i < dataset.length; i++) {
 
         // Dimensions
