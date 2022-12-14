@@ -1,4 +1,4 @@
-<script>
+
 d3.json("../../data/dataPreProcess/assignment2_histogram.json").then (function (dataset) {
 		
 
