@@ -1,3 +1,4 @@
+<script>
 d3.csv("../../data/dataPreProcess/assignment2_histogram.csv").get (function (dataset) {
 		
 
@@ -166,3 +167,4 @@ d3.csv("../../data/dataPreProcess/assignment2_histogram.csv").get (function (dat
         // default metric
         histogram(key_values[0]);
 		});
+</script>
