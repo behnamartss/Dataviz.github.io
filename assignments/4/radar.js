@@ -25,7 +25,7 @@ years.push(element['Years'])
 // });
 // console.log(datasetArray)
 
-let svg = d3.select("#radar_chart").append("svg")
+let svg = d3.select("#Radar_chart").append("svg")
     .attr("width", 1200)
     .attr("height", 1000);
 
