@@ -1,8 +1,15 @@
 
+// load the data here
+const data = (await d3.csv("../../data/dataPreProcess/Assignment4_final.csv")).filter(e => {return e.Date !== ''});
+const years = ['2021', '2017', '2013', '2009', '2005', '2001', '1997', '1993'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+    'September', 'October', 'November', 'December'];
+
 // set the dimensions and margins of the graph
 const margin = {top: 60, right: 30, bottom: 20, left:110},
     width = 800 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
+
 
 // append the svg object to the body of the page
 const svg = d3.select("#ridgeLine")
@@ -12,7 +19,6 @@ const svg = d3.select("#ridgeLine")
     .append("g")
     .attr("transform",
         `translate(${margin.left}, ${margin.top})`);
-
 
 // helper functions
 // This is what I need to compute kernel density estimation
@@ -31,13 +37,6 @@ function kernelEpanechnikov(k) {
 // end helper
 
 
-
-
-// load the data here
-const data = (await d3.csv("../../data/dataPreProcess/Assignment4_final.csv")).filter(e => {return e.Date !== ''});
-const years = ['2021', '2017', '2013', '2009', '2005', '2001', '1997', '1993'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-                'September', 'October', 'November', 'December'];
 let result = [];
 let date;
 data.forEach(element => {
@@ -75,44 +74,56 @@ svg.append("g")
 
 // Compute kernel density estimation for each column:
 const kde = kernelDensityEstimator(kernelEpanechnikov(7), x.ticks(40)) // increase this 40 for more accurate density.
-const allDensity = []
-let maxDensity;
-let minDensity;
-let output;
+await createAreas();
 
-for (let i = 0; i < months.length; i++) {
-    output = result.filter(e => {return e.year === '2021' && e.month === ('0' + i.toString()).slice(-2)});
-    maxDensity = kde( output.map(function(d){  return d.max; }) )
-    minDensity = kde( output.map(function(d){  return d.min; }) )
-    allDensity.push({key: months[i], maxDensity: maxDensity, minDensity: minDensity})
-}
+document.getElementById("selectYear").onchange = async function () {
+    svg.selectAll("#deleteHandle").remove()
+    await createAreas(this.value);
+};
+
+async function createAreas(selectedYear = '2021') {
+    const allDensity = []
+    let maxDensity;
+    let minDensity;
+    let output;
+
+    for (let i = 0; i < months.length; i++) {
+        output = result.filter(e => {return e.year === selectedYear && e.month === ('0' + i.toString()).slice(-2)});
+        maxDensity = kde( output.map(function(d){  return d.max; }) )
+        minDensity = kde( output.map(function(d){  return d.min; }) )
+        allDensity.push({key: months[i], maxDensity: maxDensity, minDensity: minDensity})
+    }
 
 // Add areas
-svg.selectAll("areas")
-    .data(allDensity)
-    .join("path")
-    .attr("transform", function(d){return(`translate(0, ${(yName(d.key)-height)})`)})
-    .datum(function(d){return(d.minDensity)})
-    .attr("fill", "#69b3a2")
-    .attr("stroke", "#000")
-    .attr("stroke-width", 1)
-    .attr("opacity", 0.9)
-    .attr("d",  d3.line()
-        .curve(d3.curveBasis)
-        .x(function(d) { return x(d[0]); })
-        .y(function(d) { return y(d[1]); })
-    );
-svg.selectAll("areas")
-    .data(allDensity)
-    .join("path")
-    .attr("transform", function(d){return(`translate(0, ${(yName(d.key)-height)})`)})
-    .datum(function(d){return(d.maxDensity)})
-    .attr("fill", "#FF0A00")
-    .attr("stroke", "#000")
-    .attr("stroke-width", 1)
-    .attr("opacity", 0.9)
-    .attr("d",  d3.line()
-        .curve(d3.curveBasis)
-        .x(function(d) { return x(d[0]); })
-        .y(function(d) { return y(d[1]); })
-    );
+    svg.selectAll("areas")
+        .data(allDensity)
+        .join("path")
+        .attr("transform", function(d){return(`translate(0, ${(yName(d.key)-height)})`)})
+        .attr("id", "deleteHandle")
+        .datum(function(d){return(d.minDensity)})
+        .attr("fill", "#69b3a2")
+        .attr("stroke", "#000")
+        .attr("stroke-width", 1)
+        .attr("opacity", 0.9)
+        .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d[0]); })
+            .y(function(d) { return y(d[1]); })
+        );
+    svg.selectAll("areas")
+        .data(allDensity)
+        .join("path")
+        .attr("transform", function(d){return(`translate(0, ${(yName(d.key)-height)})`)})
+        .attr("id", "deleteHandle")
+        .datum(function(d){return(d.maxDensity)})
+        .attr("fill", "#FF0A00")
+        .attr("stroke", "#000")
+        .attr("stroke-width", 1)
+        .attr("opacity", 0.9)
+        .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d[0]); })
+            .y(function(d) { return y(d[1]); })
+        );
+
+}
