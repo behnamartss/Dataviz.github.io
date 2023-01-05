@@ -76,7 +76,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Forth assignment</a>
                 </li>
-                
+
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -96,21 +96,13 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Radar Chart</h2>
+                <h2 class="featurette-heading">Line Chart</h2>
             </div>
         </div>
         <hr>
-        <div id="Radar_chart"><p>Mean Temperature</p></div></div>
-
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">RidgeLine</h2>
-            </div>
-        </div>
-        <hr>
-    <label for="selectYear">select year: </label>
-        <select id="selectYear">
+        <label for="selectedYear">select year: </label>
+        <select id="selectedYear">
+            <option>please select a year!</option>
             <option value="2021">2021</option>
             <option value="2017">2017</option>
             <option value="2013">2013</option>
@@ -120,19 +112,40 @@
             <option value="1997">1997</option>
             <option value="1993">1993</option>
         </select>
-        <div id="ridgeLine"></div>
-
+        <div id="lineChart"></div>
+    
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Rigidline</h2>
+                <h2 class="featurette-heading">Radar Chart</h2>
             </div>
         </div>
         <hr>
-        <div id="chropleth3"></div>
+        <div id="Radar_chart"><p>Mean Temperature</p></div>
+    
 
-      
 
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">RidgeLine</h2>
+        </div>
+    </div>
+    <hr>
+    <label for="selectYear">select year: </label>
+    <select id="selectYear">
+        <option value="2021">2021</option>
+        <option value="2017">2017</option>
+        <option value="2013">2013</option>
+        <option value="2009">2009</option>
+        <option value="2005">2005</option>
+        <option value="2001">2001</option>
+        <option value="1997">1997</option>
+        <option value="1993">1993</option>
+    </select>
+    <div id="ridgeLine"></div>
+
+
+    
 
     </div><!-- /.container -->
 </main>
@@ -142,10 +155,11 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
+
 <!--  charts js files goes here  -->
 <script src="radar.js" type="module"></script>
 <script src="ridgeline.js" type="module"></script>
-
+<script src="linechart.js" type="module"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
