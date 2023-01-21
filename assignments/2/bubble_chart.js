@@ -191,27 +191,27 @@ let filtered_data=[]
     const valuesToShow = [10000000, 100000000, 1000000000]
     const xCircle = 390
     const xLabel = 440
-    svg
-      .selectAll("legend")
-      .data(valuesToShow)
-      .join("circle")
-        .attr("cx", xCircle)
-        .attr("cy", d => height - 100 - z(d))
-        .attr("r", d => z(d))
-        .style("fill", "none")
-        .attr("stroke", "black")
+    // svg
+    //   .selectAll("legend")
+    //   .data(valuesToShow)
+    //   .join("circle")
+    //     .attr("cx", xCircle)
+    //     .attr("cy", d => height - 100 - z(d))
+    //     .attr("r", d => z(d))
+    //     .style("fill", "none")
+    //     .attr("stroke", "black")
 
-    // Add legend: segments
-    svg
-      .selectAll("legend")
-      .data(valuesToShow)
-      .join("line")
-        .attr('x1', d => xCircle + z(d))
-        .attr('x2', xLabel)
-        .attr('y1', d => height - 100 - z(d))
-        .attr('y2', d => height - 100 - z(d))
-        .attr('stroke', 'black')
-        .style('stroke-dasharray', ('2,2'))
+    // // Add legend: segments
+    // svg
+    //   .selectAll("legend")
+    //   .data(valuesToShow)
+    //   .join("line")
+    //     .attr('x1', d => xCircle + z(d))
+    //     .attr('x2', xLabel)
+    //     .attr('y1', d => height - 100 - z(d))
+    //     .attr('y2', d => height - 100 - z(d))
+    //     .attr('stroke', 'black')
+    //     .style('stroke-dasharray', ('2,2'))
 
     // Add legend: labels
     svg
